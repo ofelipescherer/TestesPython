@@ -2,6 +2,7 @@
 
 from random import randint
 
+#Caso queira, há a possibilidade de adicionar números manualmente
 lista_numeros = []
 
 if(len(lista_numeros) < 100):
@@ -11,7 +12,7 @@ if(len(lista_numeros) < 100):
 else:
     print('Sua lista está com 100 elementos, iremos prossegir')
 
-lista_numeros.sort()
+lista_numeros.sort() #Organizando a lista para ser mais fácil de verificá-la
 lista_numeros.append(1) #Número de corte
 
 numeros_repetidos = []
@@ -19,18 +20,18 @@ repeticao = 0
 for i in range(len(lista_numeros)-1):
     if(lista_numeros[i] == lista_numeros[i+1]): #A ideia aqui é verificar se o próximo número é igual ao atual, ou seja, repetido
         repeticao = repeticao + 1
-    else:
+    else: #Caso não seja, é hora de adicioná-lo na lista de números repetidos. Nesse ponto foi necessário adicionar o número de corte
         numeros_repetidos.append([lista_numeros[i],repeticao + 1])
         repeticao = 0
 
 #Testes
-print(lista_numeros)
-print(numeros_repetidos)  
+#print(lista_numeros)
+#print(numeros_repetidos)  
 
 for i in numeros_repetidos:
     print(f'Número {i[0]} aparece {i[1]} vezes')        
 
 
-
+#Bug conhecido: Caso todos os elementos da lista de 100 números forem igual a 1(Valor de corte), o programa não funcionará
 
 
